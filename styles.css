@@ -87,9 +87,10 @@ a {
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at 72% 24%, rgba(240, 216, 141, 0.18), transparent 17rem),
-    radial-gradient(circle at 20% 76%, rgba(84, 180, 141, 0.2), transparent 22rem),
-    linear-gradient(135deg, #061914 0%, #09231d 42%, #123d32 100%);
+    linear-gradient(90deg, rgba(5, 19, 15, 0.9) 0%, rgba(5, 19, 15, 0.64) 42%, rgba(5, 19, 15, 0.18) 100%),
+    linear-gradient(0deg, rgba(5, 19, 15, 0.92) 0%, rgba(5, 19, 15, 0.1) 52%),
+    url("assets/vietnam-hero-coast.jpg") center / cover no-repeat,
+    #061914;
 }
 
 .hero::before {
@@ -112,7 +113,6 @@ a {
 
 .hero__texture,
 .hero__route,
-.hero__coast,
 .hero__shade {
   position: absolute;
   inset: 0;
@@ -128,13 +128,13 @@ a {
     linear-gradient(90deg, rgba(6, 25, 20, 0.9), rgba(6, 25, 20, 0.08) 78%),
     repeating-radial-gradient(circle at 80% 42%, rgba(255, 247, 223, 0.08) 0 1px, transparent 1px 9px);
   mix-blend-mode: screen;
-  opacity: 0.62;
+  opacity: 0.34;
   animation: slow-breathe 9s ease-in-out infinite alternate;
 }
 
 .hero__route {
   z-index: -2;
-  opacity: 0.78;
+  opacity: 0.32;
   background:
     radial-gradient(circle at 76% 28%, rgba(240, 216, 141, 0.95) 0 3px, transparent 4px),
     radial-gradient(circle at 69% 42%, rgba(240, 216, 141, 0.84) 0 3px, transparent 4px),
@@ -187,102 +187,6 @@ a {
 .route-dot--two { right: 18%; top: 44%; animation-delay: 0.45s; }
 .route-dot--three { right: 26%; top: 61%; animation-delay: 0.9s; }
 .route-dot--four { right: 16%; top: 73%; animation-delay: 1.35s; }
-
-.hero__coast {
-  z-index: -2;
-  overflow: hidden;
-  opacity: 0.9;
-}
-
-.hero__coast::before {
-  content: "";
-  position: absolute;
-  right: -6vw;
-  bottom: -10vh;
-  width: min(54vw, 720px);
-  height: min(32vw, 390px);
-  border-radius: 52% 48% 0 0;
-  background:
-    radial-gradient(ellipse at 68% 52%, rgba(232, 200, 121, 0.42), transparent 35%),
-    linear-gradient(155deg, rgba(132, 215, 201, 0.24), rgba(58, 166, 161, 0.08) 42%, transparent 68%);
-  filter: blur(0.2px);
-}
-
-.hero__coast::after {
-  content: "";
-  position: absolute;
-  right: 3vw;
-  bottom: 7vh;
-  width: min(36vw, 480px);
-  height: min(15vw, 180px);
-  background:
-    radial-gradient(ellipse at 12% 78%, rgba(255, 247, 223, 0.18) 0 12%, transparent 13%),
-    radial-gradient(ellipse at 46% 70%, rgba(255, 247, 223, 0.16) 0 10%, transparent 11%),
-    radial-gradient(ellipse at 76% 76%, rgba(255, 247, 223, 0.14) 0 11%, transparent 12%);
-  transform: rotate(-7deg);
-  opacity: 0.8;
-  animation: wave-hush 7s ease-in-out infinite alternate;
-}
-
-.coast-wave {
-  position: absolute;
-  right: -2vw;
-  height: 1px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, transparent, rgba(132, 215, 201, 0.5), rgba(255, 247, 223, 0.24), transparent);
-  transform: rotate(-8deg);
-  animation: wave-slide 8s ease-in-out infinite;
-}
-
-.coast-wave--one {
-  bottom: 19vh;
-  width: min(38vw, 520px);
-}
-
-.coast-wave--two {
-  bottom: 15vh;
-  width: min(31vw, 420px);
-  animation-delay: -3s;
-  opacity: 0.7;
-}
-
-.coast-palm {
-  position: absolute;
-  right: clamp(22px, 6vw, 110px);
-  bottom: 10vh;
-  width: 92px;
-  height: 150px;
-  opacity: 0.22;
-  transform-origin: bottom center;
-  animation: palm-sway 8s ease-in-out infinite alternate;
-}
-
-.coast-palm::before {
-  content: "";
-  position: absolute;
-  left: 43px;
-  bottom: 0;
-  width: 9px;
-  height: 120px;
-  border-radius: 999px;
-  background: linear-gradient(rgba(255, 247, 223, 0.08), rgba(240, 216, 141, 0.45));
-  transform: rotate(8deg);
-}
-
-.coast-palm::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  top: 10px;
-  width: 86px;
-  height: 76px;
-  background:
-    radial-gradient(ellipse at 10% 54%, rgba(240, 216, 141, 0.4) 0 20%, transparent 21%),
-    radial-gradient(ellipse at 42% 20%, rgba(240, 216, 141, 0.48) 0 18%, transparent 19%),
-    radial-gradient(ellipse at 76% 46%, rgba(240, 216, 141, 0.38) 0 18%, transparent 19%),
-    radial-gradient(ellipse at 42% 78%, rgba(240, 216, 141, 0.3) 0 15%, transparent 16%);
-  transform: rotate(-12deg);
-}
 
 .hero__image {
   display: none;
@@ -600,7 +504,7 @@ h3 {
 
 .place-card {
   position: relative;
-  min-height: 260px;
+  min-height: 286px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -627,17 +531,21 @@ h3 {
 }
 
 .place-card::before {
-  opacity: 0.92;
-  transition: transform 520ms ease, opacity 520ms ease;
+  opacity: 0.96;
+  background-position: center;
+  background-size: cover;
+  transition: transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 520ms ease;
 }
 
 .place-card:hover::before {
-  transform: scale(1.04);
+  transform: scale(1.055);
   opacity: 1;
 }
 
 .place-card::after {
-  background: linear-gradient(0deg, rgba(6, 25, 20, 0.9), rgba(6, 25, 20, 0.18) 68%);
+  background:
+    linear-gradient(0deg, rgba(4, 18, 15, 0.94) 0%, rgba(4, 18, 15, 0.58) 38%, rgba(4, 18, 15, 0.08) 78%),
+    linear-gradient(90deg, rgba(4, 18, 15, 0.34), transparent 60%);
 }
 
 .place-card span {
@@ -645,6 +553,7 @@ h3 {
   font-size: 13px;
   font-weight: 900;
   text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.48);
 }
 
 .place-card h3 {
@@ -652,38 +561,31 @@ h3 {
   margin: 8px 0 0;
   color: var(--ivory);
   font-size: clamp(20px, 1.6vw, 24px);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.5);
 }
 
 .place-card--coast::before {
   background:
-    radial-gradient(ellipse at 74% 72%, rgba(232, 200, 121, 0.78) 0 17%, transparent 18%),
-    radial-gradient(ellipse at 22% 42%, rgba(132, 215, 201, 0.72) 0 19%, transparent 20%),
-    repeating-linear-gradient(170deg, rgba(255, 247, 223, 0.18) 0 1px, transparent 1px 17px),
-    linear-gradient(155deg, #0d5a5a, #0b312d 62%);
+    linear-gradient(0deg, rgba(6, 25, 20, 0.25), rgba(6, 25, 20, 0.04)),
+    url("assets/place-nhatrang.jpg") center / cover;
 }
 
 .place-card--bay::before {
   background:
-    radial-gradient(ellipse at 70% 34%, rgba(255, 247, 223, 0.22) 0 10%, transparent 11%),
-    radial-gradient(ellipse at 34% 54%, rgba(18, 78, 70, 0.95) 0 17%, transparent 18%),
-    radial-gradient(ellipse at 70% 62%, rgba(19, 91, 78, 0.92) 0 13%, transparent 14%),
-    linear-gradient(165deg, #2a8c87, #0a2a24 70%);
+    linear-gradient(0deg, rgba(6, 25, 20, 0.2), rgba(6, 25, 20, 0.02)),
+    url("assets/place-halong.jpg") center / cover;
 }
 
 .place-card--lantern::before {
   background:
-    radial-gradient(circle at 34% 30%, rgba(233, 111, 76, 0.86) 0 8%, transparent 9%),
-    radial-gradient(circle at 66% 42%, rgba(240, 216, 141, 0.86) 0 7%, transparent 8%),
-    radial-gradient(circle at 52% 68%, rgba(214, 168, 79, 0.72) 0 6%, transparent 7%),
-    linear-gradient(145deg, #5b2b25, #11362f 78%);
+    linear-gradient(0deg, rgba(6, 25, 20, 0.2), rgba(6, 25, 20, 0.02)),
+    url("assets/place-hoian.jpg") center / cover;
 }
 
 .place-card--island::before {
   background:
-    radial-gradient(ellipse at 70% 72%, rgba(232, 200, 121, 0.58) 0 18%, transparent 19%),
-    radial-gradient(ellipse at 28% 36%, rgba(84, 180, 141, 0.68) 0 20%, transparent 21%),
-    radial-gradient(ellipse at 62% 22%, rgba(255, 247, 223, 0.2) 0 8%, transparent 9%),
-    linear-gradient(145deg, #134f41, #0a251f 72%);
+    linear-gradient(0deg, rgba(6, 25, 20, 0.24), rgba(6, 25, 20, 0.04)),
+    url("assets/place-islands.jpg") center / cover;
 }
 
 .program {
@@ -890,19 +792,9 @@ h3 {
   50% { transform: translateY(-10px); }
 }
 
-@keyframes wave-slide {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(-8deg); opacity: 0.45; }
-  50% { transform: translate3d(-28px, -7px, 0) rotate(-8deg); opacity: 0.85; }
-}
-
 @keyframes wave-hush {
   from { transform: translateX(0); opacity: 0.5; }
   to { transform: translateX(-18px); opacity: 0.78; }
-}
-
-@keyframes palm-sway {
-  from { transform: rotate(-2deg); }
-  to { transform: rotate(4deg); }
 }
 
 @media (max-width: 980px) {
@@ -927,9 +819,12 @@ h3 {
   .business,
   .market__layout,
   .quote-grid,
-  .pricing,
-  .places__grid {
+  .pricing {
     grid-template-columns: 1fr;
+  }
+
+  .places__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .price-card--featured {
@@ -1009,29 +904,6 @@ h3 {
     display: none;
   }
 
-  .hero__coast {
-    opacity: 0.52;
-  }
-
-  .hero__coast::before {
-    right: -28vw;
-    bottom: -4vh;
-    width: 92vw;
-    height: 240px;
-  }
-
-  .hero__coast::after,
-  .coast-wave {
-    right: -18vw;
-    width: 82vw;
-  }
-
-  .coast-palm {
-    right: 10px;
-    bottom: 8vh;
-    transform: scale(0.78);
-  }
-
   .hero__actions {
     flex-direction: column;
   }
@@ -1061,7 +933,17 @@ h3 {
   }
 
   .place-card {
-    min-height: 210px;
+    min-height: 238px;
+    padding: 22px;
+  }
+
+  .places__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .place-card h3 {
+    max-width: 100%;
+    font-size: 22px;
   }
 }
 
@@ -1108,7 +990,6 @@ h3 {
   .hero__shade,
   .hero__texture,
   .hero__route,
-  .hero__coast,
   .hero__actions,
   script {
     display: none !important;
