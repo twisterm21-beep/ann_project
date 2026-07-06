@@ -5,6 +5,9 @@
   --green-800: #123c32;
   --green-700: #1c5746;
   --jade: #54b48d;
+  --sea: #3aa6a1;
+  --lagoon: #84d7c9;
+  --sand: #e8c879;
   --gold: #d6a84f;
   --gold-light: #f0d88d;
   --ivory: #fff7df;
@@ -109,6 +112,7 @@ a {
 
 .hero__texture,
 .hero__route,
+.hero__coast,
 .hero__shade {
   position: absolute;
   inset: 0;
@@ -183,6 +187,102 @@ a {
 .route-dot--two { right: 18%; top: 44%; animation-delay: 0.45s; }
 .route-dot--three { right: 26%; top: 61%; animation-delay: 0.9s; }
 .route-dot--four { right: 16%; top: 73%; animation-delay: 1.35s; }
+
+.hero__coast {
+  z-index: -2;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+.hero__coast::before {
+  content: "";
+  position: absolute;
+  right: -6vw;
+  bottom: -10vh;
+  width: min(54vw, 720px);
+  height: min(32vw, 390px);
+  border-radius: 52% 48% 0 0;
+  background:
+    radial-gradient(ellipse at 68% 52%, rgba(232, 200, 121, 0.42), transparent 35%),
+    linear-gradient(155deg, rgba(132, 215, 201, 0.24), rgba(58, 166, 161, 0.08) 42%, transparent 68%);
+  filter: blur(0.2px);
+}
+
+.hero__coast::after {
+  content: "";
+  position: absolute;
+  right: 3vw;
+  bottom: 7vh;
+  width: min(36vw, 480px);
+  height: min(15vw, 180px);
+  background:
+    radial-gradient(ellipse at 12% 78%, rgba(255, 247, 223, 0.18) 0 12%, transparent 13%),
+    radial-gradient(ellipse at 46% 70%, rgba(255, 247, 223, 0.16) 0 10%, transparent 11%),
+    radial-gradient(ellipse at 76% 76%, rgba(255, 247, 223, 0.14) 0 11%, transparent 12%);
+  transform: rotate(-7deg);
+  opacity: 0.8;
+  animation: wave-hush 7s ease-in-out infinite alternate;
+}
+
+.coast-wave {
+  position: absolute;
+  right: -2vw;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(132, 215, 201, 0.5), rgba(255, 247, 223, 0.24), transparent);
+  transform: rotate(-8deg);
+  animation: wave-slide 8s ease-in-out infinite;
+}
+
+.coast-wave--one {
+  bottom: 19vh;
+  width: min(38vw, 520px);
+}
+
+.coast-wave--two {
+  bottom: 15vh;
+  width: min(31vw, 420px);
+  animation-delay: -3s;
+  opacity: 0.7;
+}
+
+.coast-palm {
+  position: absolute;
+  right: clamp(22px, 6vw, 110px);
+  bottom: 10vh;
+  width: 92px;
+  height: 150px;
+  opacity: 0.22;
+  transform-origin: bottom center;
+  animation: palm-sway 8s ease-in-out infinite alternate;
+}
+
+.coast-palm::before {
+  content: "";
+  position: absolute;
+  left: 43px;
+  bottom: 0;
+  width: 9px;
+  height: 120px;
+  border-radius: 999px;
+  background: linear-gradient(rgba(255, 247, 223, 0.08), rgba(240, 216, 141, 0.45));
+  transform: rotate(8deg);
+}
+
+.coast-palm::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  width: 86px;
+  height: 76px;
+  background:
+    radial-gradient(ellipse at 10% 54%, rgba(240, 216, 141, 0.4) 0 20%, transparent 21%),
+    radial-gradient(ellipse at 42% 20%, rgba(240, 216, 141, 0.48) 0 18%, transparent 19%),
+    radial-gradient(ellipse at 76% 46%, rgba(240, 216, 141, 0.38) 0 18%, transparent 19%),
+    radial-gradient(ellipse at 42% 78%, rgba(240, 216, 141, 0.3) 0 15%, transparent 16%);
+  transform: rotate(-12deg);
+}
 
 .hero__image {
   display: none;
@@ -460,6 +560,132 @@ h3 {
   line-height: 1;
 }
 
+.places {
+  position: relative;
+  z-index: 1;
+  padding: clamp(72px, 8vw, 112px) clamp(20px, 5vw, 76px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 16% 22%, rgba(132, 215, 201, 0.18), transparent 18rem),
+    radial-gradient(circle at 82% 62%, rgba(232, 200, 121, 0.14), transparent 20rem),
+    linear-gradient(145deg, rgba(8, 44, 42, 0.94), rgba(6, 25, 20, 0.98));
+}
+
+.places::before {
+  content: "";
+  position: absolute;
+  left: -8vw;
+  right: -8vw;
+  top: 0;
+  height: 150px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(132, 215, 201, 0.26) 0 24%, transparent 25%),
+    radial-gradient(ellipse at 48% 0%, rgba(255, 247, 223, 0.12) 0 16%, transparent 17%),
+    radial-gradient(ellipse at 78% 0%, rgba(132, 215, 201, 0.22) 0 20%, transparent 21%);
+  opacity: 0.6;
+  animation: wave-hush 9s ease-in-out infinite alternate;
+}
+
+.places__intro {
+  max-width: 880px;
+  margin-bottom: 30px;
+}
+
+.places__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.place-card {
+  position: relative;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #12362f;
+  box-shadow: var(--shadow);
+  isolation: isolate;
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+.place-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 76px rgba(0, 0, 0, 0.32);
+}
+
+.place-card::before,
+.place-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.place-card::before {
+  opacity: 0.92;
+  transition: transform 520ms ease, opacity 520ms ease;
+}
+
+.place-card:hover::before {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.place-card::after {
+  background: linear-gradient(0deg, rgba(6, 25, 20, 0.9), rgba(6, 25, 20, 0.18) 68%);
+}
+
+.place-card span {
+  color: var(--sand);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.place-card h3 {
+  max-width: 92%;
+  margin: 8px 0 0;
+  color: var(--ivory);
+  font-size: clamp(20px, 1.6vw, 24px);
+}
+
+.place-card--coast::before {
+  background:
+    radial-gradient(ellipse at 74% 72%, rgba(232, 200, 121, 0.78) 0 17%, transparent 18%),
+    radial-gradient(ellipse at 22% 42%, rgba(132, 215, 201, 0.72) 0 19%, transparent 20%),
+    repeating-linear-gradient(170deg, rgba(255, 247, 223, 0.18) 0 1px, transparent 1px 17px),
+    linear-gradient(155deg, #0d5a5a, #0b312d 62%);
+}
+
+.place-card--bay::before {
+  background:
+    radial-gradient(ellipse at 70% 34%, rgba(255, 247, 223, 0.22) 0 10%, transparent 11%),
+    radial-gradient(ellipse at 34% 54%, rgba(18, 78, 70, 0.95) 0 17%, transparent 18%),
+    radial-gradient(ellipse at 70% 62%, rgba(19, 91, 78, 0.92) 0 13%, transparent 14%),
+    linear-gradient(165deg, #2a8c87, #0a2a24 70%);
+}
+
+.place-card--lantern::before {
+  background:
+    radial-gradient(circle at 34% 30%, rgba(233, 111, 76, 0.86) 0 8%, transparent 9%),
+    radial-gradient(circle at 66% 42%, rgba(240, 216, 141, 0.86) 0 7%, transparent 8%),
+    radial-gradient(circle at 52% 68%, rgba(214, 168, 79, 0.72) 0 6%, transparent 7%),
+    linear-gradient(145deg, #5b2b25, #11362f 78%);
+}
+
+.place-card--island::before {
+  background:
+    radial-gradient(ellipse at 70% 72%, rgba(232, 200, 121, 0.58) 0 18%, transparent 19%),
+    radial-gradient(ellipse at 28% 36%, rgba(84, 180, 141, 0.68) 0 20%, transparent 21%),
+    radial-gradient(ellipse at 62% 22%, rgba(255, 247, 223, 0.2) 0 8%, transparent 9%),
+    linear-gradient(145deg, #134f41, #0a251f 72%);
+}
+
 .program {
   overflow: hidden;
 }
@@ -664,6 +890,21 @@ h3 {
   50% { transform: translateY(-10px); }
 }
 
+@keyframes wave-slide {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-8deg); opacity: 0.45; }
+  50% { transform: translate3d(-28px, -7px, 0) rotate(-8deg); opacity: 0.85; }
+}
+
+@keyframes wave-hush {
+  from { transform: translateX(0); opacity: 0.5; }
+  to { transform: translateX(-18px); opacity: 0.78; }
+}
+
+@keyframes palm-sway {
+  from { transform: rotate(-2deg); }
+  to { transform: rotate(4deg); }
+}
+
 @media (max-width: 980px) {
   .hero {
     grid-template-columns: minmax(0, 1fr);
@@ -686,7 +927,8 @@ h3 {
   .business,
   .market__layout,
   .quote-grid,
-  .pricing {
+  .pricing,
+  .places__grid {
     grid-template-columns: 1fr;
   }
 
@@ -767,6 +1009,29 @@ h3 {
     display: none;
   }
 
+  .hero__coast {
+    opacity: 0.52;
+  }
+
+  .hero__coast::before {
+    right: -28vw;
+    bottom: -4vh;
+    width: 92vw;
+    height: 240px;
+  }
+
+  .hero__coast::after,
+  .coast-wave {
+    right: -18vw;
+    width: 82vw;
+  }
+
+  .coast-palm {
+    right: 10px;
+    bottom: 8vh;
+    transform: scale(0.78);
+  }
+
   .hero__actions {
     flex-direction: column;
   }
@@ -789,9 +1054,14 @@ h3 {
   }
 
   .section,
-  .cta {
+  .cta,
+  .places {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .place-card {
+    min-height: 210px;
   }
 }
 
@@ -838,6 +1108,7 @@ h3 {
   .hero__shade,
   .hero__texture,
   .hero__route,
+  .hero__coast,
   .hero__actions,
   script {
     display: none !important;
