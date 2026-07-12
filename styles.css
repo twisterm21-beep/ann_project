@@ -1044,7 +1044,7 @@ h3 {
   .nav {
     left: 16px;
     right: auto;
-    width: min(calc(100% - 32px), 358px);
+    width: calc(100% - 32px);
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 4px;
@@ -1076,14 +1076,15 @@ h3 {
 
   .hero__content {
     padding-top: 0;
-    width: min(100%, 358px);
-    max-width: 358px;
+    width: 100%;
+    max-width: none;
   }
 
   h1 {
-    font-size: clamp(31px, 9vw, 36px);
+    max-width: min(100%, 374px);
+    font-size: clamp(31px, 8vw, 34px);
     line-height: 1.08;
-    text-wrap: wrap;
+    text-wrap: balance;
     overflow-wrap: anywhere;
     hyphens: auto;
   }
@@ -1101,8 +1102,8 @@ h3 {
 
   .hero__panel {
     grid-template-columns: 1fr;
-    width: min(100%, 358px);
-    max-width: 358px;
+    width: 100%;
+    max-width: none;
   }
 
   .hero__panel div {
