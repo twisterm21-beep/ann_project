@@ -5,6 +5,30 @@ reveals.forEach((item, index) => {
   item.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 80}ms`);
 });
 
+const revealVisibleItems = () => {
+  reveals.forEach(item => {
+    const rect = item.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+
+    if (isVisible) {
+      item.classList.add("is-visible");
+    }
+  });
+};
+
+const scrollToCurrentHash = () => {
+  if (!window.location.hash) {
+    return;
+  }
+
+  const target = document.querySelector(window.location.hash);
+
+  if (target) {
+    target.scrollIntoView({ block: "start" });
+    requestAnimationFrame(revealVisibleItems);
+  }
+};
+
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     entries => {
@@ -19,6 +43,10 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
   );
 
   reveals.forEach(item => observer.observe(item));
+  window.addEventListener("load", revealVisibleItems);
+  window.addEventListener("load", () => setTimeout(scrollToCurrentHash, 80));
+  window.addEventListener("hashchange", () => requestAnimationFrame(revealVisibleItems));
+  setTimeout(revealVisibleItems, 120);
 } else {
   reveals.forEach(item => item.classList.add("is-visible"));
 }
