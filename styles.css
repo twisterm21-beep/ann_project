@@ -474,7 +474,8 @@ h3 {
 .quote,
 .price-card {
   padding: 28px;
-  transition: transform 260ms ease, border-color 260ms ease, background 260ms ease, box-shadow 260ms ease;
+  transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 340ms ease, box-shadow 340ms ease;
 }
 
 .glass-card:hover,
@@ -771,6 +772,7 @@ h3 {
   min-height: 330px;
   display: flex;
   flex-direction: column;
+  will-change: transform;
 }
 
 .price-card--featured {
