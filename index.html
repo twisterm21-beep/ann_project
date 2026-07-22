@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vietnam Business Incubator 2026</title>
     <meta name="description" content="Бизнес-инкубатор для запуска туров и гидской работы во Вьетнаме в 2026 году.">
+    <script>document.documentElement.classList.add("js");</script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="ambient" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
     </div>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#market">Рынок</a>
+      <a href="#program">Программа</a>
+      <a href="#formats">Тарифы</a>
+      <a href="#apply">Заявка</a>
+    </nav>
 
     <header class="hero" id="top">
       <div class="hero__texture" aria-hidden="true"></div>
@@ -21,12 +29,6 @@
         <span class="route-dot route-dot--four"></span>
       </div>
       <div class="hero__shade"></div>
-      <nav class="nav" aria-label="Основная навигация">
-        <a href="#market">Рынок</a>
-        <a href="#program">Программа</a>
-        <a href="#formats">Тарифы</a>
-        <a href="#apply">Заявка</a>
-      </nav>
       <div class="hero__content reveal">
         <p class="eyebrow">Бизнес-инкубатор 2026</p>
         <h1>Работа под пальмой для будущих профессионалов</h1>
@@ -54,7 +56,6 @@
 
     <main>
       <section class="section intro">
-        <span class="block-sticker block-sticker--intro" aria-hidden="true">без хаоса</span>
         <div class="section__copy reveal">
           <p class="eyebrow">Готовое решение</p>
           <h2>Приезжайте во Вьетнам с понятной бизнес-системой, а не с тревожным списком вопросов.</h2>
@@ -79,7 +80,6 @@
       </section>
 
       <section class="section market" id="market">
-        <span class="block-sticker block-sticker--market" aria-hidden="true">спрос растёт</span>
         <div class="section__copy reveal">
           <p class="eyebrow">Почему сейчас</p>
           <h2>Туристический рынок Вьетнама растёт, а русскоязычных специалистов не хватает.</h2>
@@ -101,7 +101,6 @@
       </section>
 
       <section class="places" id="places" aria-label="Атмосфера Вьетнама">
-        <span class="block-sticker block-sticker--places" aria-hidden="true">карта тура</span>
         <div class="places__intro reveal">
           <p class="eyebrow">Вьетнам в маршрутах</p>
           <h2>Море, горы, фонари и острова — не декор ради декора, а будущая карта ваших продуктов.</h2>
@@ -127,7 +126,6 @@
       </section>
 
       <section class="section program" id="program">
-        <span class="block-sticker block-sticker--program" aria-hidden="true">тайминг</span>
         <div class="section__copy reveal">
           <p class="eyebrow">Фундамент бизнеса</p>
           <h2>Нячанг, Далат, Фанранг, Дананг, Сайгон и Фукуок — маршруты, контакты и логика продаж в одной системе.</h2>
@@ -157,7 +155,6 @@
       </section>
 
       <section class="section business">
-        <span class="block-sticker block-sticker--business" aria-hidden="true">VIP-сборка</span>
         <div class="feature-panel reveal">
           <p class="eyebrow">VIP-маршруты и зарубежный банкинг</p>
           <h2>Собирайте туры под ключ и принимайте оплату напрямую.</h2>
@@ -177,8 +174,11 @@
         </div>
       </section>
 
+      <div class="mid-cta reveal">
+        <a class="button button--primary" href="#apply">Забронировать место на потоке</a>
+      </div>
+
       <section class="section stories">
-        <span class="block-sticker block-sticker--stories" aria-hidden="true">первый клиент</span>
         <div class="section__copy reveal">
           <p class="eyebrow">Истории учеников</p>
           <h2>Люди приходят за системой, а уходят с первыми клиентами и уверенностью.</h2>
@@ -196,7 +196,6 @@
       </section>
 
       <section class="section formats" id="formats">
-        <span class="block-sticker block-sticker--formats" aria-hidden="true">твой темп</span>
         <div class="section__copy reveal">
           <p class="eyebrow">Варианты участия</p>
           <h2>Выберите формат под свой темп и уровень сопровождения.</h2>
@@ -206,22 +205,27 @@
             <span class="price-card__label">Базовый</span>
             <h3>Самостоятельный старт</h3>
             <p>Вся теория: Нячанг, Далат, Фанранг. Базовые карты локаций и самостоятельное изучение.</p>
+            <span class="price-card__price">20 000 <span>₽</span></span>
+            <a class="button button--ghost price-card__cta" href="#apply">Выбрать тариф</a>
           </article>
           <article class="price-card price-card--featured reveal">
             <span class="price-card__label">Профи</span>
             <h3>Система продаж</h3>
             <p>Всё из «Базового» + поминутные тайминги туров, маркетинг, реклама и привлечение лидов из соцсетей.</p>
+            <span class="price-card__price">30 000 <span>₽</span></span>
+            <a class="button button--primary price-card__cta" href="#apply">Выбрать тариф</a>
           </article>
           <article class="price-card reveal">
             <span class="price-card__label">VIP</span>
             <h3>Личное сопровождение</h3>
             <p>Всё из «Профи» + личное сопровождение на маршрутах и гарантированная помощь по банковским картам.</p>
+            <span class="price-card__price">50 000 <span>₽</span></span>
+            <a class="button button--ghost price-card__cta" href="#apply">Выбрать тариф</a>
           </article>
         </div>
       </section>
 
       <section class="cta" id="apply">
-        <span class="block-sticker block-sticker--cta" aria-hidden="true">5 мест</span>
         <div class="cta__content reveal">
           <p class="eyebrow">Финальный шаг</p>
           <h2>Приезжайте во Вьетнам готовым бизнесменом, а не растерянным эмигрантом.</h2>
