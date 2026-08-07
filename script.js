@@ -56,22 +56,43 @@ const navSections = navLinks
   .map(link => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
-if ("IntersectionObserver" in window && navSections.length) {
-  const spy = new IntersectionObserver(
-    entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          const id = `#${entry.target.id}`;
-          navLinks.forEach(link =>
-            link.classList.toggle("is-active", link.getAttribute("href") === id)
-          );
-        }
-      }
-    },
-    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-  );
+if (navSections.length) {
+  const heroSection = document.querySelector(".hero");
+  // Hero goes first so it clears the highlight at the very top (it has no nav link).
+  const orderedSections = [heroSection, ...navSections].filter(Boolean);
+  let spyRaf = null;
 
-  navSections.forEach(section => spy.observe(section));
+  const updateActiveLink = () => {
+    spyRaf = null;
+    const line = window.innerHeight * 0.35;
+    let currentId = null;
+    for (const section of orderedSections) {
+      // The last section whose top has crossed the marker line is the current one.
+      if (section.getBoundingClientRect().top <= line) {
+        currentId = `#${section.id}`;
+      }
+    }
+    navLinks.forEach(link =>
+      link.classList.toggle("is-active", link.getAttribute("href") === currentId)
+    );
+  };
+
+  const queueUpdate = () => {
+    if (spyRaf === null) {
+      spyRaf = requestAnimationFrame(updateActiveLink);
+    }
+  };
+
+  window.addEventListener("scroll", queueUpdate, { passive: true });
+  window.addEventListener("resize", queueUpdate);
+  updateActiveLink();
+
+  // Instant feedback on tap/click, before the scroll settles.
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.forEach(other => other.classList.toggle("is-active", other === link));
+    });
+  });
 }
 
 if (!prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
