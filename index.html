@@ -7,27 +7,19 @@
     <meta name="description" content="Бизнес-инкубатор для запуска туров и гидской работы во Вьетнаме в 2026 году.">
     <link rel="preload" as="image" href="assets/vietnam-hero-coast-small.webp" media="(max-width: 680px)" fetchpriority="high">
     <link rel="preload" as="image" href="assets/vietnam-hero-coast.webp" media="(min-width: 681px)" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260912-opt1">
+    <link rel="stylesheet" href="styles.css?v=v1.1.0">
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти к содержанию</a>
 
     <nav class="nav" aria-label="Основная навигация">
-      <a href="#market">Рынок</a>
       <a href="#program">Программа</a>
+      <a href="#market">Рынок</a>
       <a href="#formats">Стоимость</a>
       <a href="#apply">Заявка</a>
     </nav>
 
     <header class="hero" id="top">
-      <div class="hero__texture" aria-hidden="true"></div>
-      <div class="hero__route" aria-hidden="true">
-        <span class="route-dot route-dot--one"></span>
-        <span class="route-dot route-dot--two"></span>
-        <span class="route-dot route-dot--three"></span>
-        <span class="route-dot route-dot--four"></span>
-      </div>
-      <div class="hero__shade" aria-hidden="true"></div>
       <div class="hero__content">
         <p class="eyebrow">Бизнес-инкубатор 2026</p>
         <h1>Работа под пальмой для будущих профессионалов в области туризма</h1>
@@ -37,6 +29,10 @@
           <a class="button button--ghost" href="#program">Посмотреть программу</a>
         </div>
       </div>
+      <picture class="hero__visual">
+        <source media="(max-width: 680px)" srcset="assets/vietnam-hero-coast-small.webp">
+        <img src="assets/vietnam-hero-coast.webp" width="1672" height="941" alt="" fetchpriority="high" decoding="async">
+      </picture>
       <aside class="hero__panel">
         <div>
           <strong>12+ лет</strong>
@@ -74,52 +70,6 @@
             <span class="card-mark">03</span>
             <h3>Никакой «воды»</h3>
             <p>Только рабочие связи, готовые сценарии, маршруты, карты локаций и понятные действия на каждый этап.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section market" id="market">
-        <div class="section__copy">
-          <p class="eyebrow">Почему сейчас</p>
-          <h2>Туристический рынок Вьетнама растёт, а русскоязычных специалистов не хватает.</h2>
-        </div>
-        <div class="market__layout">
-          <div class="metric-card">
-            <span class="metric-card__value">25 млн</span>
-            <p>иностранных гостей — глобальная цель Вьетнама на 2026 год.</p>
-          </div>
-          <div class="metric-card">
-            <span class="metric-card__value">10,57 млн</span>
-            <p>туристов за первое полугодие 2026 года — исторически сильный показатель для региона.</p>
-          </div>
-          <div class="metric-card metric-card--wide">
-            <span class="metric-card__value">Дефицит кадров</span>
-            <p>Поток гостей из стран СНГ создаёт устойчивый спрос на профессиональных русскоязычных гидов и организаторов туров.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="places" id="places" aria-label="Атмосфера Вьетнама">
-        <div class="places__intro">
-          <p class="eyebrow">Вьетнам в маршрутах</p>
-          <h2>Море, горы, культура и традиции — не декор ради декора, а будущая карта ваших продуктов.</h2>
-        </div>
-        <div class="places__grid">
-          <article class="place-card place-card--coast">
-            <span>Нячанг</span>
-            <h3>Пляжные туры и морские маршруты</h3>
-          </article>
-          <article class="place-card place-card--bay">
-            <span>Бухта Халонг</span>
-            <h3>Премиальные выезды и вау-точки</h3>
-          </article>
-          <article class="place-card place-card--lantern">
-            <span>Хойан</span>
-            <h3>Фонари, гастрономия и вечерний колорит</h3>
-          </article>
-          <article class="place-card place-card--island">
-            <span>Фукуок · Дананг · Далат</span>
-            <h3>Острова, мосты, водопады и прохладные горы</h3>
           </article>
         </div>
       </section>
@@ -177,6 +127,64 @@
         <a class="button button--primary" href="#apply">Забронировать место на потоке</a>
       </div>
 
+      <section class="places" id="places" aria-label="Атмосфера Вьетнама">
+        <div class="places__intro">
+          <p class="eyebrow">Вьетнам в маршрутах</p>
+          <h2>Море, горы, культура и традиции — не декор ради декора, а будущая карта ваших продуктов.</h2>
+        </div>
+        <div class="places__grid">
+          <article class="place-card place-card--coast">
+            <img class="place-card__image" src="assets/place-nhatrang-small.webp" width="640" height="960" alt="" loading="lazy" decoding="async">
+            <div class="place-card__copy">
+            <span>Нячанг</span>
+            <h3>Пляжные туры и морские маршруты</h3>
+                      </div>
+          </article>
+          <article class="place-card place-card--bay">
+            <img class="place-card__image" src="assets/place-halong-small.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+            <div class="place-card__copy">
+            <span>Бухта Халонг</span>
+            <h3>Премиальные выезды и вау-точки</h3>
+                      </div>
+          </article>
+          <article class="place-card place-card--lantern">
+            <img class="place-card__image" src="assets/place-hoian-small.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+            <div class="place-card__copy">
+            <span>Хойан</span>
+            <h3>Фонари, гастрономия и вечерний колорит</h3>
+                      </div>
+          </article>
+          <article class="place-card place-card--island">
+            <img class="place-card__image" src="assets/place-islands-small.webp" width="960" height="640" alt="" loading="lazy" decoding="async">
+            <div class="place-card__copy">
+            <span>Фукуок · Дананг · Далат</span>
+            <h3>Острова, мосты, водопады и прохладные горы</h3>
+                      </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section market" id="market">
+        <div class="section__copy">
+          <p class="eyebrow">Почему сейчас</p>
+          <h2>Туристический рынок Вьетнама растёт, а русскоязычных специалистов не хватает.</h2>
+        </div>
+        <div class="market__layout">
+          <div class="metric-card">
+            <span class="metric-card__value">25 млн</span>
+            <p>иностранных гостей — глобальная цель Вьетнама на 2026 год.</p>
+          </div>
+          <div class="metric-card">
+            <span class="metric-card__value">10,57 млн</span>
+            <p>туристов за первое полугодие 2026 года — исторически сильный показатель для региона.</p>
+          </div>
+          <div class="metric-card metric-card--wide">
+            <span class="metric-card__value">Дефицит кадров</span>
+            <p>Поток гостей из стран СНГ создаёт устойчивый спрос на профессиональных русскоязычных гидов и организаторов туров.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="section stories">
         <div class="section__copy">
           <p class="eyebrow">Истории учеников</p>
@@ -224,6 +232,6 @@
       </section>
     </main>
 
-    <script src="script.js?v=20260912-opt1"></script>
+    <script src="script.js?v=v1.1.0"></script>
   </body>
 </html>

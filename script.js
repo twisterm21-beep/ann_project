@@ -1,19 +1,3 @@
-﻿// Load decorative photos only when their section approaches the viewport.
-const photoTargets = document.querySelectorAll('.section, .places, .place-card, .cta');
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('photo-on');
-        observer.unobserve(entry.target);
-      }
-    }
-  }, { rootMargin: '250px 0px' });
-  photoTargets.forEach(element => observer.observe(element));
-} else {
-  photoTargets.forEach(element => element.classList.add('photo-on'));
-}
-
 const navLinks = Array.from(document.querySelectorAll('.nav a'));
 const navSections = navLinks.map(link => ({
   link,
