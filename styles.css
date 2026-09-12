@@ -25,7 +25,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 [id] {
@@ -35,7 +34,6 @@ html {
 body {
   margin: 0;
   position: relative;
-  overflow-x: hidden;
   color: var(--ivory);
   background:
     radial-gradient(circle at 12% 8%, rgba(84, 180, 141, 0.18), transparent 24rem),
@@ -43,19 +41,7 @@ body {
     linear-gradient(145deg, #071612 0%, #0c241d 48%, #102f27 100%);
   font-family: "Inter", "Manrope", "Segoe UI", Arial, sans-serif;
   line-height: 1.55;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(6, 25, 20, 0.84), rgba(6, 25, 20, 0.96)),
-    linear-gradient(90deg, rgba(6, 25, 20, 0.92), rgba(6, 25, 20, 0.56) 48%, rgba(6, 25, 20, 0.88)),
-    url("assets/vietnam-hero-coast.jpg") center / cover no-repeat;
-  opacity: 0.22;
+  overflow-wrap: anywhere;
 }
 
 a {
@@ -70,31 +56,6 @@ a:focus-visible,
   outline-offset: 3px;
   border-radius: 4px;
 }
-
-.ambient {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.ambient span {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold-light);
-  box-shadow: 0 0 18px var(--gold-light);
-  opacity: 0.55;
-  animation: float 14s ease-in-out infinite;
-}
-
-.ambient span:nth-child(1) { left: 8%; top: 72%; animation-delay: -2s; }
-.ambient span:nth-child(2) { left: 24%; top: 38%; animation-delay: -7s; }
-.ambient span:nth-child(3) { left: 52%; top: 80%; animation-delay: -4s; }
-.ambient span:nth-child(4) { left: 78%; top: 46%; animation-delay: -9s; }
-.ambient span:nth-child(5) { left: 91%; top: 24%; animation-delay: -5s; }
 
 .hero,
 .section,
@@ -115,7 +76,7 @@ a:focus-visible,
   background:
     linear-gradient(90deg, rgba(5, 19, 15, 0.9) 0%, rgba(5, 19, 15, 0.64) 42%, rgba(5, 19, 15, 0.18) 100%),
     linear-gradient(0deg, rgba(5, 19, 15, 0.92) 0%, rgba(5, 19, 15, 0.1) 52%),
-    url("assets/vietnam-hero-coast.jpg") center / cover no-repeat,
+    url("assets/vietnam-hero-coast.webp") center / cover no-repeat,
     #061914;
 }
 
@@ -129,8 +90,6 @@ a:focus-visible,
     repeating-linear-gradient(110deg, rgba(240, 216, 141, 0.05) 0 1px, transparent 1px 19px),
     repeating-linear-gradient(22deg, rgba(84, 180, 141, 0.035) 0 1px, transparent 1px 26px);
   opacity: 0.55;
-  transform: translate3d(var(--tilt-x, 0), var(--tilt-y, 0), 0) scale(1.03);
-  will-change: transform;
 }
 
 .hero::after {
@@ -153,9 +112,7 @@ a:focus-visible,
     radial-gradient(ellipse at 48% 70%, rgba(233, 111, 76, 0.08), transparent 20rem),
     linear-gradient(90deg, rgba(6, 25, 20, 0.9), rgba(6, 25, 20, 0.08) 78%),
     repeating-radial-gradient(circle at 80% 42%, rgba(255, 247, 223, 0.08) 0 1px, transparent 1px 9px);
-  mix-blend-mode: screen;
-  opacity: 0.34;
-  animation: slow-breathe 9s ease-in-out infinite alternate;
+  opacity: 0.62;
 }
 
 .hero__route {
@@ -181,7 +138,6 @@ a:focus-visible,
   border-radius: 48% 52% 42% 58% / 28% 34% 66% 72%;
   transform: rotate(13deg);
   box-shadow: inset 0 0 40px rgba(240, 216, 141, 0.04), 0 0 48px rgba(240, 216, 141, 0.08);
-  animation: map-glow 5.5s ease-in-out infinite alternate;
 }
 
 .hero__route::after {
@@ -195,8 +151,6 @@ a:focus-visible,
   border-top: 1px solid rgba(240, 216, 141, 0.34);
   border-radius: 50% 48% 44% 58% / 28% 32% 68% 72%;
   transform: rotate(18deg);
-  filter: drop-shadow(0 0 12px rgba(240, 216, 141, 0.32));
-  animation: route-pulse 3.8s ease-in-out infinite;
 }
 
 .route-dot {
@@ -206,13 +160,12 @@ a:focus-visible,
   border-radius: 50%;
   background: var(--gold-light);
   box-shadow: 0 0 0 7px rgba(240, 216, 141, 0.12), 0 0 22px rgba(240, 216, 141, 0.55);
-  animation: dot-ping 2.8s ease-out infinite;
 }
 
-.route-dot--one { right: 23%; top: 27%; animation-delay: 0s; }
-.route-dot--two { right: 18%; top: 44%; animation-delay: 0.45s; }
-.route-dot--three { right: 26%; top: 61%; animation-delay: 0.9s; }
-.route-dot--four { right: 16%; top: 73%; animation-delay: 1.35s; }
+.route-dot--one { right: 23%; top: 27%; }
+.route-dot--two { right: 18%; top: 44%; }
+.route-dot--three { right: 26%; top: 61%; }
+.route-dot--four { right: 16%; top: 73%; }
 
 .hero__image {
   display: none;
@@ -235,9 +188,7 @@ a:focus-visible,
   padding: 8px;
   border: 0;
   border-radius: var(--radius);
-  background: rgba(6, 25, 20, 0.72);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
+  background: rgba(6, 25, 20, 0.97);
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.2);
   transition: transform 240ms ease, background 240ms ease;
 }
@@ -255,8 +206,6 @@ a:focus-visible,
   background: var(--gold-light);
 }
 
-/* Hover highlight only where a real pointer exists — avoids the "sticky hover"
-   that keeps a tapped nav item lit on touch screens. */
 @media (hover: hover) {
   .nav a:hover {
     color: var(--green-950);
@@ -289,7 +238,7 @@ p {
 h1 {
   max-width: 760px;
   margin-bottom: 22px;
-  font-size: clamp(42px, 6.5vw, 84px);
+  font-size: clamp(42px, 6.5vw, 72px);
   line-height: 1;
   letter-spacing: 0;
   text-wrap: balance;
@@ -329,7 +278,9 @@ h3 {
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 0 20px;
+  padding: 12px 20px;
+  text-align: center;
+  overflow-wrap: anywhere;
   border: 0;
   border-radius: var(--radius);
   font-weight: 800;
@@ -364,13 +315,9 @@ h3 {
 .button--ghost {
   color: var(--ivory);
   background: rgba(255, 255, 255, 0.075);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
   box-shadow: inset 0 0 0 1px rgba(255, 247, 223, 0.08);
 }
 
-/* Ghost CTA inside a pricing card: no backdrop blur so the neighbouring
-   featured-card glow can't bleed through, and a self-contained fill. */
 .price-card__cta.button--ghost {
   background: rgba(255, 247, 223, 0.09);
   -webkit-backdrop-filter: none;
@@ -388,8 +335,6 @@ h3 {
   border-radius: var(--radius);
   background: linear-gradient(145deg, rgba(255, 247, 223, 0.11), rgba(255, 247, 223, 0.045));
   box-shadow: var(--shadow);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
 }
 
 .hero__panel {
@@ -403,7 +348,6 @@ h3 {
   box-shadow: none;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
-  animation: panel-float 6s ease-in-out infinite;
 }
 
 .hero__panel div {
@@ -441,8 +385,17 @@ h3 {
     linear-gradient(180deg, rgba(6, 25, 20, 0.88), rgba(6, 25, 20, 0.94)),
     linear-gradient(90deg, rgba(6, 25, 20, 0.86), rgba(6, 25, 20, 0.44) 54%, rgba(6, 25, 20, 0.86)),
     var(--section-photo, none) var(--section-photo-position, center) / cover no-repeat;
-  opacity: var(--section-photo-opacity, 0);
+  opacity: 0;
   transform: scale(1.02);
+  transition: opacity 520ms ease;
+}
+
+.section.photo-on {
+  --section-photo: var(--photo);
+}
+
+.section.photo-on::before {
+  opacity: var(--section-photo-opacity, 0);
 }
 
 .section::after {
@@ -482,7 +435,7 @@ h3 {
 }
 
 .intro {
-  --section-photo: url("assets/vietnam-hero-coast.jpg");
+  --photo: url("assets/vietnam-hero-coast.webp");
   --section-photo-position: center 44%;
   --section-photo-opacity: 0.5;
 }
@@ -524,7 +477,7 @@ h3 {
 }
 
 .market {
-  --section-photo: url("assets/place-halong.jpg");
+  --photo: url("assets/place-halong.webp");
   --section-photo-position: center 42%;
   --section-photo-opacity: 0.72;
   padding-bottom: clamp(28px, 3.5vw, 48px);
@@ -555,13 +508,18 @@ h3 {
   z-index: 1;
   padding: clamp(38px, 4.5vw, 62px) clamp(20px, 5vw, 76px) clamp(58px, 6.5vw, 96px);
   overflow: hidden;
+  --photo: none;
   background:
     linear-gradient(180deg, rgba(6, 25, 20, 0.98), rgba(7, 37, 33, 0.9) 34%, rgba(6, 25, 20, 0.98)),
     linear-gradient(90deg, rgba(6, 25, 20, 0.92), rgba(6, 25, 20, 0.46) 48%, rgba(6, 25, 20, 0.92)),
-    url("assets/place-islands.jpg") center 46% / cover no-repeat,
+    var(--photo) center 46% / cover no-repeat,
     radial-gradient(circle at 16% 24%, rgba(132, 215, 201, 0.14), transparent 18rem),
     radial-gradient(circle at 82% 62%, rgba(232, 200, 121, 0.14), transparent 20rem),
     #061914;
+}
+
+.places.photo-on {
+  --photo: url("assets/place-islands.webp");
 }
 
 .places__intro {
@@ -588,7 +546,13 @@ h3 {
   box-shadow: var(--shadow);
   isolation: isolate;
   transition: transform 280ms ease, box-shadow 280ms ease;
+  --photo: none;
 }
+
+.place-card--coast.photo-on { --photo: url("assets/place-nhatrang.webp"); }
+.place-card--bay.photo-on { --photo: url("assets/place-halong.webp"); }
+.place-card--lantern.photo-on { --photo: url("assets/place-hoian.webp"); }
+.place-card--island.photo-on { --photo: url("assets/place-islands.webp"); }
 
 .place-card:hover {
   transform: translateY(-6px);
@@ -604,10 +568,14 @@ h3 {
 }
 
 .place-card::before {
-  opacity: 0.96;
+  opacity: 0;
   background-position: center;
   background-size: cover;
   transition: transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 520ms ease;
+}
+
+.place-card.photo-on::before {
+  opacity: 0.96;
 }
 
 .place-card:hover::before {
@@ -640,29 +608,29 @@ h3 {
 .place-card--coast::before {
   background:
     linear-gradient(0deg, rgba(6, 25, 20, 0.25), rgba(6, 25, 20, 0.04)),
-    url("assets/place-nhatrang.jpg") center / cover;
+    var(--photo) center / cover;
 }
 
 .place-card--bay::before {
   background:
     linear-gradient(0deg, rgba(6, 25, 20, 0.2), rgba(6, 25, 20, 0.02)),
-    url("assets/place-halong.jpg") center / cover;
+    var(--photo) center / cover;
 }
 
 .place-card--lantern::before {
   background:
     linear-gradient(0deg, rgba(6, 25, 20, 0.2), rgba(6, 25, 20, 0.02)),
-    url("assets/place-hoian.jpg") center / cover;
+    var(--photo) center / cover;
 }
 
 .place-card--island::before {
   background:
     linear-gradient(0deg, rgba(6, 25, 20, 0.24), rgba(6, 25, 20, 0.04)),
-    url("assets/place-islands.jpg") center / cover;
+    var(--photo) center / cover;
 }
 
 .program {
-  --section-photo: url("assets/place-hoian.jpg");
+  --photo: url("assets/place-hoian.webp");
   --section-photo-position: center 58%;
   --section-photo-opacity: 0.62;
 }
@@ -717,7 +685,7 @@ h3 {
 }
 
 .business {
-  --section-photo: url("assets/place-nhatrang.jpg");
+  --photo: url("assets/place-nhatrang.webp");
   --section-photo-position: center 38%;
   --section-photo-opacity: 0.58;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -751,7 +719,7 @@ h3 {
 }
 
 .stories {
-  --section-photo: url("assets/place-islands.jpg");
+  --photo: url("assets/place-islands.webp");
   --section-photo-position: center 52%;
   --section-photo-opacity: 0.56;
   background:
@@ -759,14 +727,15 @@ h3 {
 }
 
 .formats {
-  --section-photo: url("assets/place-halong.jpg");
+  --photo: url("assets/place-halong.webp");
   --section-photo-position: center 32%;
   --section-photo-opacity: 0.54;
 }
 
 .quote-grid,
 .pricing {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 560px);
+  justify-content: center;
 }
 
 .quote-grid {
@@ -791,7 +760,6 @@ h3 {
   min-height: 330px;
   display: flex;
   flex-direction: column;
-  will-change: transform;
 }
 
 .price-card--featured {
@@ -852,14 +820,19 @@ h3 {
   display: grid;
   place-items: center;
   padding: clamp(70px, 9vw, 128px) clamp(20px, 5vw, 76px);
+  --photo: none;
   background:
     linear-gradient(180deg, rgba(6, 25, 20, 0.86), rgba(6, 25, 20, 0.92)),
     linear-gradient(90deg, rgba(6, 25, 20, 0.88), rgba(6, 25, 20, 0.5) 50%, rgba(6, 25, 20, 0.88)),
-    url("assets/place-nhatrang.jpg") center 54% / cover no-repeat,
+    var(--photo) center 54% / cover no-repeat,
     radial-gradient(circle at 50% 18%, rgba(240, 216, 141, 0.18), transparent 20rem),
     linear-gradient(145deg, #061914 0%, #0d3329 100%);
   overflow: hidden;
   isolation: isolate;
+}
+
+.cta.photo-on {
+  --photo: url("assets/place-nhatrang.webp");
 }
 
 .cta::before {
@@ -888,57 +861,6 @@ h3 {
   color: rgba(255, 247, 223, 0.62);
 }
 
-.reveal {
-  transition: opacity 760ms ease, transform 760ms cubic-bezier(0.2, 0.78, 0.2, 1);
-  transition-delay: var(--reveal-delay, 0ms);
-}
-
-.js .reveal {
-  opacity: 0;
-  transform: translateY(24px) scale(0.985);
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.hero .reveal {
-  opacity: 1;
-  transform: none;
-}
-
-@keyframes float {
-  0% { transform: translate3d(0, 28px, 0) scale(0.75); opacity: 0; }
-  35% { opacity: 0.5; }
-  100% { transform: translate3d(0, -130px, 0) scale(1.1); opacity: 0; }
-}
-
-@keyframes slow-breathe {
-  from { transform: scale(1); opacity: 0.48; }
-  to { transform: scale(1.04); opacity: 0.76; }
-}
-
-@keyframes map-glow {
-  from { opacity: 0.55; filter: drop-shadow(0 0 0 rgba(240, 216, 141, 0)); }
-  to { opacity: 0.95; filter: drop-shadow(0 0 18px rgba(240, 216, 141, 0.16)); }
-}
-
-@keyframes route-pulse {
-  0%, 100% { opacity: 0.48; transform: rotate(18deg) translateY(0); }
-  50% { opacity: 0.95; transform: rotate(18deg) translateY(-8px); }
-}
-
-@keyframes dot-ping {
-  0%, 100% { transform: scale(0.9); }
-  50% { transform: scale(1.28); }
-}
-
-@keyframes panel-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
 @media (max-width: 980px) {
   .hero {
     grid-template-columns: minmax(0, 1fr);
@@ -962,7 +884,11 @@ h3 {
   .market__layout,
   .quote-grid,
   .pricing {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pricing {
+    grid-template-columns: minmax(0, 560px);
   }
 
   .places__grid {
@@ -976,7 +902,7 @@ h3 {
 
 @media (max-width: 680px) {
   body {
-    padding-bottom: 76px;
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   }
 
   [id] {
@@ -996,7 +922,7 @@ h3 {
     padding-bottom: max(6px, env(safe-area-inset-bottom));
     overflow: hidden;
     border-radius: 16px 16px 0 0;
-    background: rgba(6, 25, 20, 0.9);
+    background: rgba(6, 25, 20, 0.97);
   }
 
   .nav a {
@@ -1016,7 +942,7 @@ h3 {
     background:
       linear-gradient(90deg, rgba(5, 19, 15, 0.96) 0%, rgba(5, 19, 15, 0.8) 52%, rgba(5, 19, 15, 0.34) 100%),
       linear-gradient(0deg, rgba(5, 19, 15, 0.94) 0%, rgba(5, 19, 15, 0.18) 58%),
-      url("assets/vietnam-hero-coast.jpg") 94% center / auto 100% no-repeat,
+      url("assets/vietnam-hero-coast-small.webp") 94% center / auto 100% no-repeat,
       #061914;
   }
 
@@ -1137,25 +1063,62 @@ h3 {
   .place-card--coast::before {
     background:
       linear-gradient(0deg, rgba(6, 25, 20, 0.3), rgba(6, 25, 20, 0.05)),
-      url("assets/place-nhatrang.jpg") 38% center / cover no-repeat;
+      var(--photo) 38% center / cover no-repeat;
   }
 
   .place-card--bay::before {
     background:
       linear-gradient(0deg, rgba(6, 25, 20, 0.26), rgba(6, 25, 20, 0.04)),
-      url("assets/place-halong.jpg") 48% center / cover no-repeat;
+      var(--photo) 48% center / cover no-repeat;
   }
 
   .place-card--lantern::before {
     background:
       linear-gradient(0deg, rgba(6, 25, 20, 0.28), rgba(6, 25, 20, 0.05)),
-      url("assets/place-hoian.jpg") 58% center / cover no-repeat;
+      var(--photo) 58% center / cover no-repeat;
   }
 
   .place-card--island::before {
     background:
       linear-gradient(0deg, rgba(6, 25, 20, 0.3), rgba(6, 25, 20, 0.05)),
-      url("assets/place-islands.jpg") 42% center / cover no-repeat;
+      var(--photo) 42% center / cover no-repeat;
+  }
+}
+
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 18px;
+  color: var(--green-950);
+  background: var(--gold-light);
+  transform: translateY(-160%);
+}
+.skip-link:focus { transform: none; }
+
+/* Keep long words inside grid cells at narrow widths and enlarged text sizes. */
+.hero > *, .business > *, .intro__grid > *, .places__grid > *,
+.market__layout > *, .quote-grid > *, .pricing > * { min-width: 0; }
+
+@media (hover: none) {
+  .button:hover, .glass-card:hover, .metric-card:hover, .quote:hover,
+  .price-card:hover, .feature-panel:hover, .place-card:hover,
+  .place-card:hover::before { transform: none; }
+  .button::after { display: none; }
+}
+
+@media (max-width: 680px) {
+  .intro { --photo: url("assets/vietnam-hero-coast-small.webp"); }
+  .market, .formats, .place-card--bay.photo-on { --photo: url("assets/place-halong-small.webp"); }
+  .program, .place-card--lantern.photo-on { --photo: url("assets/place-hoian-small.webp"); }
+  .business, .cta.photo-on, .place-card--coast.photo-on { --photo: url("assets/place-nhatrang-small.webp"); }
+  .stories, .places.photo-on, .place-card--island.photo-on { --photo: url("assets/place-islands-small.webp"); }
+  .timeline__item { padding: 22px 18px 22px 42px; }
+  .hero, .section, .places, .cta {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
   }
 }
 

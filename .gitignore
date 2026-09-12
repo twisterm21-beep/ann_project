@@ -1,6 +1,5 @@
 node_modules/
-.edge-profile/
-.edge-profile-mobile/
+.edge-profile*/
 source-pages/
 redesign-pages/
 site-preview*.png
