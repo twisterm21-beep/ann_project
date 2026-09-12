@@ -17,6 +17,7 @@ try {
     }
     if ($CheckOnly) { Write-Output "Release $Version is available. No files changed."; return }
     $dirtyFiles = git status --porcelain
+    if ($LASTEXITCODE -ne 0) { throw 'Could not check working tree status.' }
     if ($dirtyFiles) { throw 'Commit or save current changes before restoring a release.' }
     $archiveDir = Join-Path (Split-Path $projectPath -Parent) 'releases'
     New-Item -ItemType Directory -Force -Path $archiveDir | Out-Null
@@ -26,8 +27,11 @@ try {
     git restore "--source=$Version" -- @siteFiles
     if ($LASTEXITCODE -ne 0) { throw 'Restore failed.' }
     git add -- @siteFiles
+    if ($LASTEXITCODE -ne 0) { throw 'Restored files, but could not stage them.' }
     git diff --cached --quiet
-    if ($LASTEXITCODE -eq 1) {
+    $diffResult = $LASTEXITCODE
+    if ($diffResult -gt 1) { throw 'Could not inspect restored changes.' }
+    if ($diffResult -eq 1) {
         git commit -m "Restore site to $Version"
         if ($LASTEXITCODE -ne 0) { throw 'Restored files, but could not commit them.' }
     }

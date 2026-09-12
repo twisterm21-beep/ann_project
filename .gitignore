@@ -1,8 +1,29 @@
+# Local dependencies and generated output
 node_modules/
+dist/
+__pycache__/
+*.pyc
+*.log
+
+# Browser profiles, screenshots and working backups
 .edge-profile*/
 source-pages/
 redesign-pages/
 site-preview*.png
-*.pdf
-package-lock.json
-package.json
+backups/
+releases/
+*.bak
+
+# Hosting configuration, credentials and certificate validation
+.vscode/sftp.json
+.ssh-access/
+.well-known/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS metadata
+.DS_Store
+Thumbs.db
