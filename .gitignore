@@ -10,6 +10,7 @@ __pycache__/
 source-pages/
 redesign-pages/
 site-preview*.png
+site-preview-checks/
 backups/
 releases/
 *.bak
